@@ -79,87 +79,6 @@
       
       // Function to analyze the text
       function analyzeText() {
-        <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Text Analyzer</title>
-    <style>
-      /* Define styles for HTML elements */
-      #text-input {
-        width: 100%;
-        height: 200px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        padding: 10px;
-        box-sizing: border-box;
-      }
-      #count-results {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .count-box {
-        flex-basis: 25%;
-        text-align: center;
-      }
-      .count-box h2 {
-        margin: 0;
-      }
-      .count-box p {
-        margin: 5px 0 0 0;
-      }
-      body {
-        background-color: #1d1d1d;
-        color: #fff;
-      }
-      #text-input {
-        background-color: #2b2b2b;
-        color: #fff;
-        border: 1px solid #333;
-      }
-      #analyze-button {
-        background-color: #008CBA;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      #analyze-button:hover {
-        background-color: #007095;
-      }
-      .count-box {
-        background-color: #2b2b2b;
-        border: 1px solid #333;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Input field for text and analyze button -->
-    <div>
-      <textarea id="text-input" placeholder="Enter text to analyze"></textarea>
-      <button id="analyze-button">Analyze</button>
-    </div>
-    <!-- Display area for results -->
-    <div id="count-results"></div>
-    <script>
-      // Add event listener to the analyze button
-      const analyzeButton = document.querySelector('#analyze-button');
-      analyzeButton.addEventListener('click', () => {
-        analyzeText();
-      });
-      
-      // Add event listener to the text input field for double-click
-      const textInput = document.querySelector('#text-input');
-      textInput.addEventListener('dblclick', () => {
-        analyzeText();
-      });
-      
-      // Function to analyze the text
-      function analyzeText() {
         let text = textInput.value;
         // Count the number of letters
         let letterCount = text.replace(/\s/g, "").replace(/[^\w]/g, "").length;
@@ -169,26 +88,6 @@
         let sentenceCount = text.split(/[.?!]/g).filter(Boolean).length;
         // Display the results in the count-results div
         let countResults = document.querySelector('#count-results');
-        countResults.innerHTML = `
-         <div class="count-box">
-          <h2>Letters</h2>
-          <p>${letterCount}</p>
-         </div>
-         <div class="count-box">
-          <h2>Words</h2>
-          <p>${wordCount}</p>
-         </div>
-         <div class="count-box">
-          <h2>Sentences</h2>
-          <p>${sentenceCount}</p>
-         </div>
-        `;
-      }
-    </script>
-  </body>
-</html>
-        // Display the results in the count-results div
-        const countResults = document.querySelector('#count-results');
         countResults.innerHTML = `
          <div class="count-box">
           <h2>Letters</h2>

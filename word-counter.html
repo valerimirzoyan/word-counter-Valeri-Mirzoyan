@@ -54,6 +54,17 @@
         margin-bottom: 10px;
         padding: 10px;
       }
+      #cleanup-button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #cleanup-button:hover {
+        background-color: #d32f2f;
+      }
     </style>
   </head>
   <body>
@@ -61,6 +72,7 @@
     <div>
       <textarea id="text-input" placeholder="Enter text to analyze"></textarea>
       <button id="analyze-button">Analyze</button>
+      <button id="cleanup-button">Cleanup</button>
     </div>
     <!-- Display area for results -->
     <div id="count-results"></div>
@@ -76,6 +88,14 @@
       textInput.addEventListener('dblclick', () => {
         analyzeText();
       });
+
+       // Add event listener to the cleanup button
+      const cleanupButton = document.querySelector('#cleanup-button');
+      cleanupButton.addEventListener('click', () => {
+        textInput.value = '';
+        countResults.innerHTML = '';
+      });
+
       
       // Function to analyze the text
       function analyzeText() {

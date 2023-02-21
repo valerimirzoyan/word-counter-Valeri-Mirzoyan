@@ -79,19 +79,15 @@
       
       // Function to analyze the text
       function analyzeText() {
-        const text = textInput.value;
-          // Remove spaces from the text
-        const lettersOnly = text.replace(/\s/g, '');
-        // Remove any non-letter characters from the text
-        lettersOnlys = text.replace(/[^a-zA-Z ]/g, '');
+        let text = textInput.value;
         // Count the number of letters
-        const letterCount = lettersOnly.length;
+        let letterCount = text.replace(/\s/g, "").replace(/[^\w]/g, "").length;
         // Count the number of words
-        const wordCount = lettersOnlys.trim().split(/\s+/).length;
+        let wordCount = text.split(" ").length;
         // Count the number of sentences
-        const sentenceCount = lettersOnlys.split(/[.?!]+/).length - 1;
+        let sentenceCount = text.split(/[.?!]/g).filter(Boolean).length;
         // Display the results in the count-results div
-        const countResults = document.querySelector('#count-results');
+        let countResults = document.querySelector('#count-results');
         countResults.innerHTML = `
          <div class="count-box">
           <h2>Letters</h2>

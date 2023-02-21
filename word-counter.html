@@ -65,6 +65,34 @@
       #cleanup-button:hover {
         background-color: #d32f2f;
       }
+
+      /* Define styles for new buttons */
+      #bg-color1-button {
+        background-color: #1d1d1d;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #bg-color1-button:hover {
+        background-color: #1d1d1d;
+      }
+
+      #bg-color2-button {
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #bg-color2-button:hover {
+        background-color: #ffffff;
+      }
+
     </style>
   </head>
   <body>
@@ -74,8 +102,16 @@
       <button id="analyze-button">Analyze</button>
       <button id="cleanup-button">Cleanup</button>
     </div>
+
     <!-- Display area for results -->
     <div id="count-results"></div>
+
+    <!-- Add new buttons for background color -->
+    <div>
+      <button id="bg-color1-button">Background color 1</button>
+      <button id="bg-color2-button">Background color 2</button>
+    </div>
+
     <script>
       // Add event listener to the analyze button
       const analyzeButton = document.querySelector('#analyze-button');
@@ -89,14 +125,24 @@
         analyzeText();
       });
 
-       // Add event listener to the cleanup button
+      // Add event listener to the cleanup button
       const cleanupButton = document.querySelector('#cleanup-button');
       cleanupButton.addEventListener('click', () => {
         textInput.value = '';
         countResults.innerHTML = '';
       });
 
-      
+      // Add event listeners to the new buttons
+      const bgColor1Button = document.querySelector('#bg-color1-button');
+        bgColor1Button.addEventListener('click', () => {
+        document.body.style.backgroundColor = '#1d1d1d';
+      });
+
+      const bgColor2Button = document.querySelector('#bg-color2-button');
+        bgColor2Button.addEventListener('click', () => {
+        document.body.style.backgroundColor = '#ffffff';
+      });
+
       // Function to analyze the text
       function analyzeText() {
         let text = textInput.value;
